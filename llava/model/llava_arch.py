@@ -194,29 +194,6 @@ class LlavaMetaForCausalLM(ABC):
         image_features = self.get_model().mm_projector(image_features)  # [b, 576, 4096]
         return image_features
 
-    # def matryoshka_vis_token_process(self, image_features, matryoshka_vis_token_scale):
-    #     image_features_ori = image_features.clone()
-    #     N, H_W, C = image_features.shape
-    #     H = W = int(H_W ** 0.5)
-    #     reshaped_tensor = image_features.view(N, H, W, C)
-    #     reshaped_tensor = reshaped_tensor.permute(0, 3, 1, 2)  # N, C, H, W
-    #     pool_size = stride = int(np.sqrt(H_W / matryoshka_vis_token_scale))
-    #     pooled_tensor = F.avg_pool2d(reshaped_tensor, kernel_size=pool_size, stride=stride)
-    #     pooled_tensor_ori = pooled_tensor.clone()
-    #     if matryoshka_vis_token_scale == 1:
-    #         pooled_tensor = self.get_model().mm_projector_pool_1(pooled_tensor) + pooled_tensor_ori
-    #     elif matryoshka_vis_token_scale == 9:
-    #         pooled_tensor = self.get_model().mm_projector_pool_9(pooled_tensor) + pooled_tensor_ori
-    #     elif matryoshka_vis_token_scale == 36:
-    #         pooled_tensor = self.get_model().mm_projector_pool_36(pooled_tensor) + pooled_tensor_ori
-    #     elif matryoshka_vis_token_scale == 144:
-    #         pooled_tensor = self.get_model().mm_projector_pool_144(pooled_tensor) + pooled_tensor_ori
-    #
-    #     image_features = pooled_tensor.permute(0, 2, 3, 1)
-    #     image_features = image_features.reshape(N, -1, C)
-    #
-    #     return image_features
-
     def matryoshka_vis_token_process(self, image_features, matryoshka_vis_token_scale):
         image_features_ori = image_features.clone()
         N, H_W, C = image_features.shape
