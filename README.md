@@ -4,7 +4,7 @@
 
 [Qingtao Pan](https://qingtaopan.github.io/), [Zhihao Dou](https://scholar.google.com/citations?user=JiBGiB8AAAAJ&hl=zh-CN&oi=ao), and [Shuo Li](https://case.edu/engineering/about/faculty-and-staff-directory/shuo-li)
 
-**CVPR 2026 Findings, 2026**
+**CVPR Findings, 2026**
 
 <a href='https://arxiv.org/abs/2603.11220'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
 
